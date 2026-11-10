@@ -77,7 +77,6 @@ function renderCatalog() {
             card.className = 'product-card-detailed';
             
             const imgTag = prod.image ? `<img src="${prod.image}" alt="${prod.name}" class="product-img">` : '';
-            const waUrl = waLink + encodeURIComponent("Здравствуйте! Хочу заказать: " + prod.name);
             
             card.innerHTML = `
                 ${imgTag}
@@ -91,7 +90,7 @@ function renderCatalog() {
                     <span class="meta-item">📊 ${prod.kbzhu}</span>
                 </div>
                 <div class="ingredients-box">${prod.ingredients}</div>
-                <a href="${waUrl}" target="_blank" class="btn btn-primary full-width">Заказать в WhatsApp</a>
+                <a href="order.html" class="btn btn-primary full-width">Заказать</a>
             `;
             sectionGrid.appendChild(card);
         });
@@ -111,14 +110,13 @@ function renderHits() {
         card.className = 'product-card';
         
         const imgTag = prod.image ? `<img src="${prod.image}" alt="${prod.name}" class="product-img">` : '';
-        const waUrl = waLink + encodeURIComponent("Здравствуйте! Хочу заказать: " + prod.name);
         
         card.innerHTML = `
             ${imgTag}
             <h3>${prod.name}</h3>
             <p class="price">${prod.price}</p>
             <p class="description">${prod.desc}</p>
-            <a href="${waUrl}" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Заказать</a>
+            <a href="order.html" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Заказать</a>
         `;
         hitsGrid.appendChild(card);
     });
